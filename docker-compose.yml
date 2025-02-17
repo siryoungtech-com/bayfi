@@ -1,0 +1,34 @@
+services:
+  app:
+    build: .
+    container_name: bayfi_app
+    ports:
+      - "8080:8080"  # Host port 8080 maps to container port 8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev   # Or 'dev' or 'prod' depending on your environment
+      # Other environment variables (e.g., API keys) can be added here
+    depends_on:
+      - db
+    networks:
+      - bayfi_network
+
+  db:
+    image: postgres:17
+    container_name: bayfi_postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: bayfi_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - bayfi_network
+
+volumes:
+  db_data:
+
+networks:
+  bayfi_network:
