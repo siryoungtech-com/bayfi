@@ -1,11 +1,11 @@
 server:
-  port: 8000  # Local machine port for your app
+  port: 8080  # Local machine port for your app
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/bayfi_local  # Local PostgreSQL database
-    username: postgres
-    password: password
+    url: jdbc:postgresql://${DATABASE_HOST:db}:${DATABASE_PORT:5432}/${DATABASE_NAME} # Local PostgreSQL database
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -21,7 +21,7 @@ spring:
       password: password
 logging:
   level:
-    root: debug  # Debug logging for detailed output during development
+    root: info  # Debug logging for detailed output during development
 
 management:
   endpoints:

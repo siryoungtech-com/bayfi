@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/database_name  # Local PostgreSQL database
-    username: user_name
-    password: db_password
+    url: jdbc:postgresql://${DATABASE_HOST:db}:${DATABASE_PORT:5432}/${DATABASE_NAME} # Local PostgreSQL database
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -21,7 +21,7 @@ spring:
       password: password
 logging:
   level:
-    root: debug  # Debug logging for detailed output during development
+    root: info  # Debug logging for detailed output during development
 
 management:
   endpoints:
