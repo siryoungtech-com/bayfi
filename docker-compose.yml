@@ -31,8 +31,8 @@ services:
     image: ngrok/ngrok:latest
     container_name: bayfi_ngrok
     command:
-      - "http"
-      - "http://app:8080/"  # Forward to the Spring Boot app service
+      - "http --url=trusty-vulture-roughly.ngrok-free.app 8080"
+      # Forward to the Spring Boot app service
     environment:
       NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
     ports:

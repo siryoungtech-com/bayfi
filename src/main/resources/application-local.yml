@@ -15,6 +15,15 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${jWT_EXPIRATION}
+
+  ngrok:
+    enabled: true
+    auth-token: "${NGROK_AUTHTOKEN}"
+    command: "http --url=trusty-vulture-roughly.ngrok-free.app 8080"
+
   security:
     user:
       name: user
