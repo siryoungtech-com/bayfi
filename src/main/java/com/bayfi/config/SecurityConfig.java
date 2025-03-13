@@ -1,7 +1,16 @@
 package com.bayfi.config;
 
+import com.bayfi.util.JwtUtil;
+import com.bayfi.component.RSAKeyProperties;
 import com.bayfi.component.oauth2LoginSuccessHandler;
 import com.bayfi.service.implementation.CustomUserDetailsService;
+import com.nimbusds.jose.jwk.JWK;
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.jose.jwk.RSAKey;
+import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
+import com.nimbusds.jose.jwk.source.JWKSource;
+import com.nimbusds.jose.proc.SecurityContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,6 +23,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
@@ -22,15 +35,13 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final CustomUserDetailsService customUserDetailsService;
-    private final oauth2LoginSuccessHandler oauth2LoginSuccessHandler;
-    private final JwtAuthenticationConverter jwtAuthenticationConverter;
+    private final RSAKeyProperties keys;
 
-    public SecurityConfig(CustomUserDetailsService customUserDetailsService, com.bayfi.component.oauth2LoginSuccessHandler oauth2LoginSuccessHandler, JwtAuthenticationConverter jwtAuthenticationConverter) {
-        this.customUserDetailsService = customUserDetailsService;
-        this.oauth2LoginSuccessHandler = oauth2LoginSuccessHandler;
-        this.jwtAuthenticationConverter = jwtAuthenticationConverter;
+    public SecurityConfig(RSAKeyProperties keys) {
+        this.keys = keys;
     }
+
+
 
 
     @Bean
@@ -39,8 +50,11 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth-> auth
                         .requestMatchers("/api/v1/auth/**",
+                                "/",
                                 "/swagger-ui/**",
+                                "/v1/api-docs",
                                 "/v2/api-docs",
+                                "/v3/api-docs",
                                 "/swagger-ui.html").permitAll() // public endpoint
 
                         .requestMatchers("api/v1/admin/**").hasRole("ADMIN") // admin-only endpoint
@@ -51,9 +65,9 @@ public class SecurityConfig {
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
 
-                .oauth2Login(oauth2 ->oauth2
-                        .successHandler(oauth2LoginSuccessHandler)//Handle Oauth2 login success
-                )
+//                .oauth2Login(oauth2 ->oauth2
+//                        .successHandler(oauth2LoginSuccessHandler)//Handle Oauth2 login success
+//                )
 
                 .oauth2ResourceServer(oauth2 -> oauth2
                         .jwt(jwt-> jwt
@@ -74,6 +88,18 @@ public class SecurityConfig {
     }
 
     @Bean
+    public JwtDecoder jwtDecoder(){
+        return NimbusJwtDecoder.withPublicKey(keys.getPublicKey()).build();
+    }
+
+    @Bean
+    public JwtEncoder jwtEncoder(){
+        JWK jwk = new RSAKey.Builder(keys.getPublicKey()).privateKey(keys.getPrivateKey()).build();
+        JWKSource<SecurityContext> jwks = new ImmutableJWKSet<>(new JWKSet(jwk));
+        return new NimbusJwtEncoder(jwks);
+    }
+
+    @Bean
     public AuthenticationManager authenticationManager(UserDetailsService userDetailsService){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setUserDetailsService(userDetailsService);
@@ -90,7 +116,6 @@ public class SecurityConfig {
         jwtConverter.setJwtGrantedAuthoritiesConverter(jwtGrantedAuthoritiesConverter);
         return jwtConverter;
     }
-
 
 
 

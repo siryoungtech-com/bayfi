@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://${DATABASE_HOST:db}:${DATABASE_PORT:5432}/${DATABASE_NAME} # Local PostgreSQL database
-    username: ${DATABASE_USER}
-    password: ${DATABASE_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/bayfi_db_local # Local PostgreSQL database
+    username: postgres
+    password: password
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -15,10 +15,18 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
+
+  docker:
+    compose:
+      enabled: false
+
+
   security:
     user:
       name: user
       password: password
+
+
 jwt:
   secret: ${JWT_SECRET}
   expiration: ${jWT_EXPIRATION}

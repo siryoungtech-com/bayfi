@@ -1,6 +1,7 @@
-package com.bayfi.component;
+package com.bayfi.util;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,8 +15,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-@Component
 public class JwtUtil {
+
 
     private final JwtEncoder jwtEncoder;
     private final JwtDecoder jwtDecoder;
@@ -34,19 +35,21 @@ public class JwtUtil {
     public String generateJwt(Authentication auth, String userEmail) {
         log.info("Generating JWT for user: {}", userEmail);
 
-        String scope = auth.getAuthorities().stream()
+        List<String> roles = auth.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.joining(" "));
+                .map(role -> role.startsWith("ROLE_") ? role : "ROLE_" + role)
+                .collect(Collectors.toList());
 
-        if (scope.isEmpty()) {
-            scope = "ROLE_USER"; // Default role if no authorities are found
+
+        if (roles.isEmpty()) {
+            roles.add("ROLE_USER"); // Default role if no authorities are found
         }
 
         JwtClaimsSet claims = JwtClaimsSet.builder()
-                .issuer("unclebayo")
+                .issuer("bayfi")
                 .issuedAt(Instant.now())
                 .subject(userEmail)
-                .claim("roles", scope)
+                .claim("roles", roles)
                 .expiresAt(Instant.now().plusMillis(expiration))
                 .build();
 
@@ -64,6 +67,7 @@ public class JwtUtil {
     }
 
     public Collection<? extends GrantedAuthority> extractAuthorities(Jwt jwt) {
+        // Extract roles from the JWT and convert them to GrantedAuthority objects
         List<String> roles = jwt.getClaimAsStringList("roles");
         return roles.stream()
                 .map(SimpleGrantedAuthority::new)

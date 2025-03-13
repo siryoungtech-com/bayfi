@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+
 @Component
 public class oauth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
@@ -25,6 +26,8 @@ public class oauth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
         OAuth2User oauth2User = (OAuth2User) authentication.getPrincipal();
+
+//        TODO: check if user exist
 
         // Save or update user in the database
         String email = oauth2User.getAttribute("email");

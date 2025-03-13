@@ -1,8 +1,7 @@
 package com.bayfi.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,27 +10,32 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDateTime;
 import java.util.*;
 
+@Builder
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "users")
 @Entity
 public class User  implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "user_id")
     private UUID id;
 
-    @Column(nullable = false)
-    private String firstName;
+    @Column(name = "firstname", nullable = false)
+    private String firstname;
 
-    @Column(nullable = false)
-    private String lastName;
+    @Column(name = "lastname", nullable = false)
+    private String lastname;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(unique = true, nullable = false)
-    private String userName;
+    @Column( name = "username", unique = true, nullable = false)
+    private String username;
 
-    @Column(nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @CreationTimestamp
@@ -67,7 +71,6 @@ public class User  implements UserDetails {
     private Set<Role> roles = new HashSet<>();
 
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
@@ -81,7 +84,7 @@ public class User  implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     @Override
