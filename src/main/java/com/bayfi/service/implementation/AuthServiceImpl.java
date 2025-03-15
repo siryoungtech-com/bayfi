@@ -1,14 +1,15 @@
 package com.bayfi.service.implementation;
 
 import com.bayfi.dto.Request.SignUpRequest;
+import com.bayfi.entity.Role;
 import com.bayfi.entity.User;
 import com.bayfi.exception.UserAlreadyExistsException;
+import com.bayfi.repository.RoleRepository;
 import com.bayfi.repository.UserRepository;
 import com.bayfi.service.AuthService;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 @Transactional
 @Service
@@ -25,10 +28,12 @@ public class AuthServiceImpl implements AuthService {
     private final static Logger logger = LoggerFactory.getLogger(AuthServiceImpl.class);
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final RoleRepository roleRepository;
 
-    public AuthServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public AuthServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.roleRepository = roleRepository;
     }
 
     @Override
@@ -69,6 +74,14 @@ public class AuthServiceImpl implements AuthService {
                 .isCredentialsNonExpired(true)
                 .isEnabled(true)
                 .build();
+
+        //Initialize roles if null
+        if(newUser.getRoles() == null){
+            newUser.setRoles(new HashSet<>());
+        }
+
+        Optional<Role> userRole = roleRepository.findByAuthority("ROLE_USER");
+        userRole.ifPresent(role -> newUser.getRoles().add(role));
 
         try {
             // Save user to database

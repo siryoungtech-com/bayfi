@@ -1,16 +1,12 @@
 package com.bayfi.config;
 
-import com.bayfi.util.JwtUtil;
 import com.bayfi.component.RSAKeyProperties;
-import com.bayfi.component.oauth2LoginSuccessHandler;
-import com.bayfi.service.implementation.CustomUserDetailsService;
 import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -49,12 +45,17 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth-> auth
-                        .requestMatchers("/api/v1/auth/**",
-                                "/",
+                        .requestMatchers(
                                 "/swagger-ui/**",
-                                "/v1/api-docs",
+                                "/api/v1/auth/**",
                                 "/v2/api-docs",
                                 "/v3/api-docs",
+                                "v3/api-docs/**",
+                                "/swagger-resources",
+                                "/swagger-resources/**",
+                                "/configuration/ui",
+                                "/configuration/security",
+                                "webjars/**",
                                 "/swagger-ui.html").permitAll() // public endpoint
 
                         .requestMatchers("api/v1/admin/**").hasRole("ADMIN") // admin-only endpoint

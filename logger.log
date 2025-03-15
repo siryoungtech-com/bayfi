@@ -1,0 +1,319 @@
+2025-03-15T00:14:16.320+01:00  INFO 40760 --- [restartedMain] com.bayfi.BayfiApplication               : Starting BayfiApplication using Java 21.0.6 with PID 40760 (/home/onadiran-bayonle/PROJECTS/bayfi/target/classes started by onadiran-bayonle in /home/onadiran-bayonle/PROJECTS/bayfi)
+2025-03-15T00:14:16.395+01:00  INFO 40760 --- [restartedMain] com.bayfi.BayfiApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-03-15T00:14:16.463+01:00  INFO 40760 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-15T00:14:16.464+01:00  INFO 40760 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-15T00:14:18.393+01:00  INFO 40760 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-15T00:14:18.474+01:00  INFO 40760 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 2 JPA repository interfaces.
+2025-03-15T00:14:19.491+01:00  INFO 40760 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-15T00:14:19.516+01:00  INFO 40760 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-15T00:14:19.518+01:00  INFO 40760 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-15T00:14:19.587+01:00  INFO 40760 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-15T00:14:19.587+01:00  INFO 40760 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3091 ms
+2025-03-15T00:14:20.050+01:00  INFO 40760 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-15T00:14:20.122+01:00  INFO 40760 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-03-15T00:14:20.169+01:00  INFO 40760 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-15T00:14:20.495+01:00  INFO 40760 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-15T00:14:20.540+01:00  INFO 40760 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-15T00:14:20.973+01:00  INFO 40760 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2f058102
+2025-03-15T00:14:20.975+01:00  INFO 40760 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-15T00:14:21.031+01:00  WARN 40760 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-15T00:14:21.068+01:00  INFO 40760 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-15T00:14:22.279+01:00  INFO 40760 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-15T00:14:22.401+01:00  INFO 40760 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-15T00:14:24.779+01:00  WARN 40760 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-15T00:14:24.834+01:00  INFO 40760 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-03-15T00:14:25.399+01:00  INFO 40760 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2025-03-15T00:14:25.474+01:00  WARN 40760 --- [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [/swagger-ui/**, /api/v1/auth/**, /v2/api-docs, /v3/api-docs, v3/api-docs/**, /swagger-resources, /swagger-resources/**, /configuration/ui, /configuration/security, webjars/**, /swagger-ui.html] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-03-15T00:14:25.520+01:00  WARN 40760 --- [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [api/v1/admin/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-03-15T00:14:25.900+01:00  INFO 40760 --- [restartedMain] n.configuration.NgrokAutoConfiguration   : Ngrok is enabled.
+2025-03-15T00:14:26.349+01:00  INFO 40760 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-15T00:14:26.459+01:00  INFO 40760 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-15T00:14:26.497+01:00  INFO 40760 --- [restartedMain] com.bayfi.BayfiApplication               : Started BayfiApplication in 10.789 seconds (process running for 11.327)
+2025-03-15T00:14:32.619+01:00  INFO 40760 --- [ngrok-thread-1] ngrok.NgrokRunner                        : Ngrok started successfully! Dashboard url -> [ http://127.0.0.1:4040 ]
+2025-03-15T00:14:32.842+01:00  INFO 40760 --- [ngrok-thread-1] ngrok.NgrokRunner                        : Remote url (https)	-> [ https://trusty-vulture-roughly.ngrok-free.app ]
+2025-03-15T00:15:30.181+01:00  INFO 40760 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-15T00:15:30.182+01:00  INFO 40760 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-15T00:15:30.185+01:00  INFO 40760 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-03-15T00:15:30.405+01:00  INFO 40760 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : Registering user with email: john.doe@example.com
+2025-03-15T00:15:30.591+01:00  INFO 40760 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : User details: SignUpRequest(firstname=John, lastname=Doe, email=john.doe@example.com, username=johndoe, password=Password123!)
+2025-03-15T00:15:30.595+01:00  INFO 40760 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : Saving new user: com.bayfi.entity.User@4ee1dcc9
+2025-03-15T00:15:30.619+01:00  INFO 40760 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : User registered successfully with ID: 4c6c4e08-f223-4261-840b-2bcf0fe20e48
+2025-03-15T00:17:51.369+01:00  INFO 40760 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-15T00:17:51.373+01:00  INFO 40760 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-03-15T00:17:51.381+01:00  INFO 40760 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-15T00:17:51.385+01:00  INFO 40760 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-15T00:17:51.410+01:00  INFO 40760 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-15T00:18:05.293+01:00  INFO 42035 --- [restartedMain] com.bayfi.BayfiApplication               : Starting BayfiApplication using Java 21.0.6 with PID 42035 (/home/onadiran-bayonle/PROJECTS/bayfi/target/classes started by onadiran-bayonle in /home/onadiran-bayonle/PROJECTS/bayfi)
+2025-03-15T00:18:05.295+01:00  INFO 42035 --- [restartedMain] com.bayfi.BayfiApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-03-15T00:18:05.375+01:00  INFO 42035 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-15T00:18:05.376+01:00  INFO 42035 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-15T00:18:06.853+01:00  INFO 42035 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-15T00:18:06.929+01:00  INFO 42035 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 2 JPA repository interfaces.
+2025-03-15T00:18:07.917+01:00  INFO 42035 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-15T00:18:07.945+01:00  INFO 42035 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-15T00:18:07.946+01:00  INFO 42035 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-15T00:18:08.026+01:00  INFO 42035 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-15T00:18:08.027+01:00  INFO 42035 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2621 ms
+2025-03-15T00:18:08.485+01:00  INFO 42035 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-15T00:18:08.553+01:00  INFO 42035 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-03-15T00:18:08.600+01:00  INFO 42035 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-15T00:18:08.910+01:00  INFO 42035 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-15T00:18:08.954+01:00  INFO 42035 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-15T00:18:09.361+01:00  INFO 42035 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6e306b94
+2025-03-15T00:18:09.363+01:00  INFO 42035 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-15T00:18:09.418+01:00  WARN 42035 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-15T00:18:09.447+01:00  INFO 42035 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-15T00:18:10.691+01:00  INFO 42035 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-15T00:18:10.805+01:00  INFO 42035 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-15T00:18:13.865+01:00  WARN 42035 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-15T00:18:13.912+01:00  INFO 42035 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-03-15T00:18:14.645+01:00  INFO 42035 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2025-03-15T00:18:14.735+01:00  WARN 42035 --- [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [/swagger-ui/**, /api/v1/auth/**, /v2/api-docs, /v3/api-docs, v3/api-docs/**, /swagger-resources, /swagger-resources/**, /configuration/ui, /configuration/security, webjars/**, /swagger-ui.html] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-03-15T00:18:14.772+01:00  WARN 42035 --- [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [api/v1/admin/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-03-15T00:18:15.193+01:00  INFO 42035 --- [restartedMain] n.configuration.NgrokAutoConfiguration   : Ngrok is enabled.
+2025-03-15T00:18:15.603+01:00  INFO 42035 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-15T00:18:15.695+01:00  INFO 42035 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-15T00:18:15.729+01:00  INFO 42035 --- [restartedMain] com.bayfi.BayfiApplication               : Started BayfiApplication in 11.026 seconds (process running for 11.615)
+2025-03-15T00:18:21.854+01:00  INFO 42035 --- [ngrok-thread-1] ngrok.NgrokRunner                        : Ngrok started successfully! Dashboard url -> [ http://127.0.0.1:4040 ]
+2025-03-15T00:18:22.012+01:00  INFO 42035 --- [ngrok-thread-1] ngrok.NgrokRunner                        : Remote url (https)	-> [ https://trusty-vulture-roughly.ngrok-free.app ]
+2025-03-15T00:18:34.466+01:00  INFO 42035 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-15T00:18:34.468+01:00  INFO 42035 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-15T00:18:34.473+01:00  INFO 42035 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-03-15T00:18:34.714+01:00  INFO 42035 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : Registering user with email: john.doe@example.com
+2025-03-15T00:18:34.761+01:00  WARN 42035 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : User registration failed: username already exists JOHNDOE
+2025-03-15T00:18:34.785+01:00  WARN 42035 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bayfi.exception.UserAlreadyExistsException: Username already exists: JOHNDOE]
+2025-03-15T00:18:46.585+01:00  INFO 42035 --- [http-nio-8080-exec-2] c.b.s.implementation.AuthServiceImpl     : Registering user with email: john.doe@example.com
+2025-03-15T00:18:46.617+01:00  WARN 42035 --- [http-nio-8080-exec-2] c.b.s.implementation.AuthServiceImpl     : User registration failed: email already exists john.doe@example.com
+2025-03-15T00:18:46.629+01:00  WARN 42035 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bayfi.exception.UserAlreadyExistsException: Email already exists: john.doe@example.com]
+2025-03-15T00:19:04.331+01:00  INFO 42035 --- [http-nio-8080-exec-3] c.b.s.implementation.AuthServiceImpl     : Registering user with email: john.doee@example.com
+2025-03-15T00:19:04.600+01:00  INFO 42035 --- [http-nio-8080-exec-3] c.b.s.implementation.AuthServiceImpl     : User details: SignUpRequest(firstname=John, lastname=Doe, email=john.doee@example.com, username=johndoee, password=Password123!)
+2025-03-15T00:19:04.608+01:00 ERROR 42035 --- [http-nio-8080-exec-3] c.b.exception.GlobalExceptionHandler     : Cannot invoke "java.util.Set.add(Object)" because the return value of "com.bayfi.entity.User.getRoles()" is null
+2025-03-15T00:19:04.611+01:00  WARN 42035 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException: Cannot invoke "java.util.Set.add(Object)" because the return value of "com.bayfi.entity.User.getRoles()" is null]
+2025-03-15T00:31:28.512+01:00  INFO 42035 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-15T00:31:28.519+01:00  INFO 42035 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-03-15T00:31:28.536+01:00  INFO 42035 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-15T00:31:28.548+01:00  INFO 42035 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-15T00:31:28.593+01:00  INFO 42035 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-15T00:45:14.708+01:00  INFO 49721 --- [restartedMain] com.bayfi.BayfiApplication               : Starting BayfiApplication using Java 21.0.6 with PID 49721 (/home/onadiran-bayonle/PROJECTS/bayfi/target/classes started by onadiran-bayonle in /home/onadiran-bayonle/PROJECTS/bayfi)
+2025-03-15T00:45:14.714+01:00  INFO 49721 --- [restartedMain] com.bayfi.BayfiApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-03-15T00:45:14.864+01:00  INFO 49721 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-15T00:45:14.865+01:00  INFO 49721 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-15T00:45:18.831+01:00  INFO 49721 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-15T00:45:19.000+01:00  INFO 49721 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 142 ms. Found 2 JPA repository interfaces.
+2025-03-15T00:45:21.574+01:00  INFO 49721 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-15T00:45:21.620+01:00  INFO 49721 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-15T00:45:21.621+01:00  INFO 49721 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-15T00:45:21.752+01:00  INFO 49721 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-15T00:45:21.754+01:00  INFO 49721 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6836 ms
+2025-03-15T00:45:22.856+01:00  INFO 49721 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-15T00:45:23.016+01:00  INFO 49721 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-03-15T00:45:23.134+01:00  INFO 49721 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-15T00:45:23.924+01:00  INFO 49721 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-15T00:45:24.028+01:00  INFO 49721 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-15T00:45:25.002+01:00  INFO 49721 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1d58682e
+2025-03-15T00:45:25.008+01:00  INFO 49721 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-15T00:45:25.126+01:00  WARN 49721 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-15T00:45:25.191+01:00  INFO 49721 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-15T00:45:28.007+01:00  INFO 49721 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-15T00:45:28.248+01:00  INFO 49721 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-15T00:45:35.716+01:00  WARN 49721 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-15T00:45:35.864+01:00  INFO 49721 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-03-15T00:45:37.354+01:00  INFO 49721 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2025-03-15T00:45:37.497+01:00  WARN 49721 --- [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [/swagger-ui/**, /api/v1/auth/**, /v2/api-docs, /v3/api-docs, v3/api-docs/**, /swagger-resources, /swagger-resources/**, /configuration/ui, /configuration/security, webjars/**, /swagger-ui.html] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-03-15T00:45:37.606+01:00  WARN 49721 --- [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [api/v1/admin/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-03-15T00:45:38.984+01:00  INFO 49721 --- [restartedMain] n.configuration.NgrokAutoConfiguration   : Ngrok is enabled.
+2025-03-15T00:45:40.017+01:00  INFO 49721 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-15T00:45:40.259+01:00  INFO 49721 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-15T00:45:40.359+01:00  INFO 49721 --- [restartedMain] com.bayfi.BayfiApplication               : Started BayfiApplication in 27.056 seconds (process running for 28.716)
+2025-03-15T00:45:46.507+01:00  INFO 49721 --- [ngrok-thread-1] ngrok.NgrokRunner                        : Ngrok started successfully! Dashboard url -> [ http://127.0.0.1:4040 ]
+2025-03-15T00:45:46.757+01:00  INFO 49721 --- [ngrok-thread-1] ngrok.NgrokRunner                        : Remote url (https)	-> [ https://trusty-vulture-roughly.ngrok-free.app ]
+2025-03-15T00:45:58.494+01:00  INFO 49721 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-15T00:45:58.495+01:00  INFO 49721 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-15T00:45:58.502+01:00  INFO 49721 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2025-03-15T00:45:59.009+01:00  INFO 49721 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : Registering user with email: john.doee@example.com
+2025-03-15T00:45:59.450+01:00  INFO 49721 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : User details: SignUpRequest(firstname=John, lastname=Doe, email=john.doee@example.com, username=johndoee, password=Password123!)
+2025-03-15T00:45:59.474+01:00 ERROR 49721 --- [http-nio-8080-exec-1] c.b.exception.GlobalExceptionHandler     : Cannot invoke "java.util.Set.add(Object)" because the return value of "com.bayfi.entity.User.getRoles()" is null
+2025-03-15T00:45:59.510+01:00  WARN 49721 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException: Cannot invoke "java.util.Set.add(Object)" because the return value of "com.bayfi.entity.User.getRoles()" is null]
+2025-03-15T00:54:56.431+01:00  INFO 49721 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-15T00:54:56.439+01:00  INFO 49721 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-03-15T00:54:56.456+01:00  INFO 49721 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-15T00:54:56.465+01:00  INFO 49721 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-15T00:54:56.481+01:00  INFO 49721 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-15T00:55:05.340+01:00  INFO 52825 --- [restartedMain] com.bayfi.BayfiApplication               : Starting BayfiApplication using Java 21.0.6 with PID 52825 (/home/onadiran-bayonle/PROJECTS/bayfi/target/classes started by onadiran-bayonle in /home/onadiran-bayonle/PROJECTS/bayfi)
+2025-03-15T00:55:05.342+01:00  INFO 52825 --- [restartedMain] com.bayfi.BayfiApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-03-15T00:55:05.404+01:00  INFO 52825 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-15T00:55:05.404+01:00  INFO 52825 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-15T00:55:06.435+01:00  INFO 52825 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-15T00:55:06.503+01:00  INFO 52825 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+2025-03-15T00:55:07.219+01:00  INFO 52825 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-15T00:55:07.236+01:00  INFO 52825 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-15T00:55:07.237+01:00  INFO 52825 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-15T00:55:07.287+01:00  INFO 52825 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-15T00:55:07.288+01:00  INFO 52825 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1866 ms
+2025-03-15T00:55:07.611+01:00  INFO 52825 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-15T00:55:07.660+01:00  INFO 52825 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-03-15T00:55:07.695+01:00  INFO 52825 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-15T00:55:07.917+01:00  INFO 52825 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-15T00:55:07.948+01:00  INFO 52825 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-15T00:55:08.249+01:00  INFO 52825 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@364b24b8
+2025-03-15T00:55:08.251+01:00  INFO 52825 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-15T00:55:08.305+01:00  WARN 52825 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-15T00:55:08.331+01:00  INFO 52825 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-15T00:55:09.186+01:00  INFO 52825 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-15T00:55:09.268+01:00  INFO 52825 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-15T00:55:10.099+01:00  WARN 52825 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-15T00:55:10.144+01:00  INFO 52825 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-03-15T00:55:10.584+01:00  INFO 52825 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2025-03-15T00:55:10.671+01:00  WARN 52825 --- [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [/swagger-ui/**, /api/v1/auth/**, /v2/api-docs, /v3/api-docs, v3/api-docs/**, /swagger-resources, /swagger-resources/**, /configuration/ui, /configuration/security, webjars/**, /swagger-ui.html] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-03-15T00:55:10.721+01:00  WARN 52825 --- [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [api/v1/admin/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-03-15T00:55:11.116+01:00  INFO 52825 --- [restartedMain] n.configuration.NgrokAutoConfiguration   : Ngrok is enabled.
+2025-03-15T00:55:11.434+01:00  INFO 52825 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-15T00:55:11.513+01:00  INFO 52825 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-15T00:55:11.546+01:00  INFO 52825 --- [restartedMain] com.bayfi.BayfiApplication               : Started BayfiApplication in 6.623 seconds (process running for 7.017)
+2025-03-15T00:55:17.658+01:00  INFO 52825 --- [ngrok-thread-1] ngrok.NgrokRunner                        : Ngrok started successfully! Dashboard url -> [ http://127.0.0.1:4040 ]
+2025-03-15T00:55:17.744+01:00  INFO 52825 --- [ngrok-thread-1] ngrok.NgrokRunner                        : Remote url (https)	-> [ https://trusty-vulture-roughly.ngrok-free.app ]
+2025-03-15T00:56:12.855+01:00  INFO 52825 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-15T00:56:12.855+01:00  INFO 52825 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-15T00:56:12.857+01:00  INFO 52825 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-03-15T00:56:12.991+01:00  INFO 52825 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : Registering user with email: john.doee@example.com
+2025-03-15T00:56:13.110+01:00  INFO 52825 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : User details: SignUpRequest(firstname=John, lastname=Doe, email=john.doee@example.com, username=johndoee, password=Password123!)
+2025-03-15T00:56:13.114+01:00  INFO 52825 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : Saving new user: com.bayfi.entity.User@2ca2deaf
+2025-03-15T00:56:13.127+01:00  INFO 52825 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : User registered successfully with ID: 63cda5bd-ce9c-4851-a0f1-73e0a1dbfb04
+2025-03-15T00:56:34.400+01:00  INFO 52825 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-15T00:56:34.408+01:00  INFO 52825 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-03-15T00:56:34.431+01:00  INFO 52825 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-15T00:56:34.441+01:00  INFO 52825 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-15T00:56:34.457+01:00  INFO 52825 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-15T00:56:42.812+01:00  INFO 53541 --- [restartedMain] com.bayfi.BayfiApplication               : Starting BayfiApplication using Java 21.0.6 with PID 53541 (/home/onadiran-bayonle/PROJECTS/bayfi/target/classes started by onadiran-bayonle in /home/onadiran-bayonle/PROJECTS/bayfi)
+2025-03-15T00:56:42.814+01:00  INFO 53541 --- [restartedMain] com.bayfi.BayfiApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-03-15T00:56:42.875+01:00  INFO 53541 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-15T00:56:42.876+01:00  INFO 53541 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-15T00:56:43.910+01:00  INFO 53541 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-15T00:56:43.975+01:00  INFO 53541 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 2 JPA repository interfaces.
+2025-03-15T00:56:44.696+01:00  INFO 53541 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-15T00:56:44.713+01:00  INFO 53541 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-15T00:56:44.714+01:00  INFO 53541 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-15T00:56:44.758+01:00  INFO 53541 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-15T00:56:44.758+01:00  INFO 53541 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1858 ms
+2025-03-15T00:56:45.089+01:00  INFO 53541 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-15T00:56:45.144+01:00  INFO 53541 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-03-15T00:56:45.178+01:00  INFO 53541 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-15T00:56:45.395+01:00  INFO 53541 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-15T00:56:45.422+01:00  INFO 53541 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-15T00:56:45.724+01:00  INFO 53541 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2da8e0cf
+2025-03-15T00:56:45.725+01:00  INFO 53541 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-15T00:56:45.763+01:00  WARN 53541 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-15T00:56:45.785+01:00  INFO 53541 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-15T00:56:46.663+01:00  INFO 53541 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-15T00:56:46.749+01:00  INFO 53541 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-15T00:56:48.583+01:00  WARN 53541 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-15T00:56:48.631+01:00  INFO 53541 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-03-15T00:56:49.182+01:00  INFO 53541 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2025-03-15T00:56:49.245+01:00  WARN 53541 --- [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [/swagger-ui/**, /api/v1/auth/**, /v2/api-docs, /v3/api-docs, v3/api-docs/**, /swagger-resources, /swagger-resources/**, /configuration/ui, /configuration/security, webjars/**, /swagger-ui.html] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-03-15T00:56:49.283+01:00  WARN 53541 --- [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [api/v1/admin/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-03-15T00:56:49.646+01:00  INFO 53541 --- [restartedMain] n.configuration.NgrokAutoConfiguration   : Ngrok is enabled.
+2025-03-15T00:56:49.962+01:00  INFO 53541 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-15T00:56:50.051+01:00  INFO 53541 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-15T00:56:50.075+01:00  INFO 53541 --- [restartedMain] com.bayfi.BayfiApplication               : Started BayfiApplication in 7.698 seconds (process running for 8.057)
+2025-03-15T00:56:56.178+01:00  INFO 53541 --- [ngrok-thread-1] ngrok.NgrokRunner                        : Ngrok started successfully! Dashboard url -> [ http://127.0.0.1:4040 ]
+2025-03-15T00:56:56.260+01:00  INFO 53541 --- [ngrok-thread-1] ngrok.NgrokRunner                        : Remote url (https)	-> [ https://trusty-vulture-roughly.ngrok-free.app ]
+2025-03-15T00:56:57.497+01:00  INFO 53541 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-15T00:56:57.497+01:00  INFO 53541 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-15T00:56:57.499+01:00  INFO 53541 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-03-15T00:56:57.652+01:00  INFO 53541 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : Registering user with email: john.doee@example.com
+2025-03-15T00:56:57.679+01:00  WARN 53541 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : User registration failed: username already exists JOHNDOEE
+2025-03-15T00:56:57.695+01:00  WARN 53541 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bayfi.exception.UserAlreadyExistsException: Username already exists: JOHNDOEE]
+2025-03-15T00:57:37.365+01:00  INFO 53541 --- [http-nio-8080-exec-2] c.b.s.implementation.AuthServiceImpl     : Registering user with email: john.doeee@example.com
+2025-03-15T00:57:37.484+01:00  INFO 53541 --- [http-nio-8080-exec-2] c.b.s.implementation.AuthServiceImpl     : User details: SignUpRequest(firstname=John, lastname=Doe, email=john.doeee@example.com, username=johndoeee, password=Password123!)
+2025-03-15T00:57:37.487+01:00  INFO 53541 --- [http-nio-8080-exec-2] c.b.s.implementation.AuthServiceImpl     : Saving new user: com.bayfi.entity.User@47c7ce2c
+2025-03-15T00:57:37.499+01:00  INFO 53541 --- [http-nio-8080-exec-2] c.b.s.implementation.AuthServiceImpl     : User registered successfully with ID: 763dc24c-e518-45da-8768-295529efa064
+2025-03-15T00:58:49.853+01:00  INFO 53541 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-15T00:58:49.856+01:00  INFO 53541 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-03-15T00:58:49.868+01:00  INFO 53541 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-15T00:58:49.873+01:00  INFO 53541 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-15T00:58:49.886+01:00  INFO 53541 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-15T00:58:58.807+01:00  INFO 54514 --- [restartedMain] com.bayfi.BayfiApplication               : Starting BayfiApplication using Java 21.0.6 with PID 54514 (/home/onadiran-bayonle/PROJECTS/bayfi/target/classes started by onadiran-bayonle in /home/onadiran-bayonle/PROJECTS/bayfi)
+2025-03-15T00:58:58.809+01:00  INFO 54514 --- [restartedMain] com.bayfi.BayfiApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-03-15T00:58:58.878+01:00  INFO 54514 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-15T00:58:58.878+01:00  INFO 54514 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-15T00:58:59.922+01:00  INFO 54514 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-15T00:58:59.986+01:00  INFO 54514 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 2 JPA repository interfaces.
+2025-03-15T00:59:00.700+01:00  INFO 54514 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-15T00:59:00.717+01:00  INFO 54514 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-15T00:59:00.718+01:00  INFO 54514 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-15T00:59:00.772+01:00  INFO 54514 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-15T00:59:00.772+01:00  INFO 54514 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1864 ms
+2025-03-15T00:59:01.106+01:00  INFO 54514 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-15T00:59:01.162+01:00  INFO 54514 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-03-15T00:59:01.199+01:00  INFO 54514 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-15T00:59:01.419+01:00  INFO 54514 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-15T00:59:01.453+01:00  INFO 54514 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-15T00:59:01.755+01:00  INFO 54514 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@24d0bd41
+2025-03-15T00:59:01.757+01:00  INFO 54514 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-15T00:59:01.801+01:00  WARN 54514 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-15T00:59:01.824+01:00  INFO 54514 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-15T00:59:02.766+01:00  INFO 54514 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-15T00:59:02.864+01:00  INFO 54514 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-15T00:59:03.962+01:00  WARN 54514 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-15T00:59:04.021+01:00  INFO 54514 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-03-15T00:59:04.448+01:00  INFO 54514 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2025-03-15T00:59:04.493+01:00  WARN 54514 --- [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [/swagger-ui/**, /api/v1/auth/**, /v2/api-docs, /v3/api-docs, v3/api-docs/**, /swagger-resources, /swagger-resources/**, /configuration/ui, /configuration/security, webjars/**, /swagger-ui.html] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-03-15T00:59:04.528+01:00  WARN 54514 --- [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [api/v1/admin/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-03-15T00:59:04.833+01:00  INFO 54514 --- [restartedMain] n.configuration.NgrokAutoConfiguration   : Ngrok is enabled.
+2025-03-15T00:59:05.160+01:00  INFO 54514 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-15T00:59:05.253+01:00  INFO 54514 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-15T00:59:05.279+01:00  INFO 54514 --- [restartedMain] com.bayfi.BayfiApplication               : Started BayfiApplication in 6.906 seconds (process running for 7.356)
+2025-03-15T00:59:11.385+01:00  INFO 54514 --- [ngrok-thread-1] ngrok.NgrokRunner                        : Ngrok started successfully! Dashboard url -> [ http://127.0.0.1:4040 ]
+2025-03-15T00:59:11.469+01:00  INFO 54514 --- [ngrok-thread-1] ngrok.NgrokRunner                        : Remote url (https)	-> [ https://trusty-vulture-roughly.ngrok-free.app ]
+2025-03-15T00:59:18.077+01:00  INFO 54514 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-15T00:59:18.077+01:00  INFO 54514 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-15T00:59:18.081+01:00  INFO 54514 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2025-03-15T00:59:18.241+01:00  INFO 54514 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : Registering user with email: john.doeee@example.com
+2025-03-15T00:59:18.272+01:00  WARN 54514 --- [http-nio-8080-exec-1] c.b.s.implementation.AuthServiceImpl     : User registration failed: username already exists JOHNDOEEE
+2025-03-15T00:59:18.289+01:00  WARN 54514 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.bayfi.exception.UserAlreadyExistsException: Username already exists: JOHNDOEEE]
+2025-03-15T00:59:34.288+01:00  INFO 54514 --- [http-nio-8080-exec-2] c.b.s.implementation.AuthServiceImpl     : Registering user with email: john.doeeee@example.com
+2025-03-15T00:59:34.400+01:00  INFO 54514 --- [http-nio-8080-exec-2] c.b.s.implementation.AuthServiceImpl     : User details: SignUpRequest(firstname=John, lastname=Doe, email=john.doeeee@example.com, username=johndoeeee, password=Password123!)
+2025-03-15T00:59:34.403+01:00  INFO 54514 --- [http-nio-8080-exec-2] c.b.s.implementation.AuthServiceImpl     : Saving new user: com.bayfi.entity.User@16961bf
+2025-03-15T00:59:34.413+01:00  INFO 54514 --- [http-nio-8080-exec-2] c.b.s.implementation.AuthServiceImpl     : User registered successfully with ID: 2425ecf1-e020-45dd-91ba-8d872c834e04

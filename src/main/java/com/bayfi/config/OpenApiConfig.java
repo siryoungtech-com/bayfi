@@ -9,21 +9,19 @@ import io.swagger.v3.oas.annotations.info.License;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.servers.Server;
-import jakarta.persistence.Version;
 
 @OpenAPIDefinition(
         info =  @Info(
                 contact = @Contact(name = "BayFi ltd", url = "?", email = "support@bayfi.com"),
                 title = "OpenAI specification: BayFi",
-                version = "3.1.0",
+                version = "1.0",
                 license = @License(name = "MIT license", url = "https://choosealicense.com/licenses/mit/"),
                 termsOfService = "Terms of Service"
         ),
 
 
         servers = {
-                @Server(description = "local ENV", url = "http://localhost:8080"),
-                @Server(description = "dev ENV", url = "https://trusty-vulture-roughly.ngrok-free.app")
+                @Server(description = "development server", url = "https://trusty-vulture-roughly.ngrok-free.app")
         },
         security = {@SecurityRequirement(name = "bearerAuth")}
 )

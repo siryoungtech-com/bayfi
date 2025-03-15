@@ -10,19 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "HomeController", description = "Home Api")
 @RestController
 public class HomeController {
-    @Operation(
-            description = "Endpoint for Home",
-            summary = "This is the end point for home controller",
-            responses = {
-                    @ApiResponse(
-                    description = "Success",
-                    responseCode = "200"
-                    ),
-                    @ApiResponse(
-                            description = "unauthorized",
-                            responseCode = "403"
-                    )
-            })
+    @Operation(description = "Endpoint for Home", summary = "This is the end point for home controller")
     @GetMapping
     public ResponseEntity<String> home(){
         return ResponseEntity.ok("Api is Up and Running ");

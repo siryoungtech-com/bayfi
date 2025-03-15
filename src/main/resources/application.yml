@@ -38,6 +38,8 @@ ngrok:
 
 
 logging:
+  file:
+    name: logger.log
   level:
     root: info  # Debug logging for detailed output during development
 

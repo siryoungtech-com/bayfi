@@ -3,7 +3,6 @@ package com.bayfi.controller;
 import com.bayfi.dto.Request.SignUpRequest;
 import com.bayfi.service.implementation.AuthServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -24,9 +23,6 @@ public class AuthController {
     }
 
     @Operation(summary = "Register a new user", description = "Register a new user with the provided details")
-    @ApiResponse(responseCode = "201", description = "User registered successfully")
-    @ApiResponse(responseCode = "409", description = "User already exists")
-    @ApiResponse(responseCode = "400", description = "invalid input")
     @PostMapping("/sign-up")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<String> registerUser(@RequestBody @Valid SignUpRequest request){
