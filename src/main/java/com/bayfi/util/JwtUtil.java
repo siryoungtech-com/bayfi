@@ -1,8 +1,10 @@
 package com.bayfi.util;
 
+import com.bayfi.constant.JwtConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,6 +16,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 @Slf4j
 public class JwtUtil {
 
@@ -21,11 +24,6 @@ public class JwtUtil {
     private final JwtEncoder jwtEncoder;
     private final JwtDecoder jwtDecoder;
 
-    @Value("${jwt.secret}")
-    private String jwtSecret;
-
-    @Value("${jwt.expiration}")
-    private Long expiration;
 
     public JwtUtil(JwtEncoder jwtEncoder, JwtDecoder jwtDecoder) {
         this.jwtEncoder = jwtEncoder;
@@ -50,7 +48,7 @@ public class JwtUtil {
                 .issuedAt(Instant.now())
                 .subject(userEmail)
                 .claim("roles", roles)
-                .expiresAt(Instant.now().plusMillis(expiration))
+                .expiresAt(Instant.now().plusMillis(JwtConstant.JWT_EXPIRATION_TIME))
                 .build();
 
         return jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();

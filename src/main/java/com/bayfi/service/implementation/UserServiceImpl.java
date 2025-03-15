@@ -3,6 +3,9 @@ package com.bayfi.service.implementation;
 import com.bayfi.entity.User;
 import com.bayfi.repository.UserRepository;
 import com.bayfi.service.UserService;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,4 +26,6 @@ public class UserServiceImpl implements UserService {
             user.setProviderId(providerId);
             userRepository.save(user);
         }
+
+
 }

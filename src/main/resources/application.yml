@@ -21,15 +21,10 @@ spring:
       enabled: false
 
 
-  security:
-    user:
-      name: user
-      password: password
-
 
 jwt:
-  secret: ${JWT_SECRET}
-  expiration: ${jWT_EXPIRATION}
+#  secret: appi-secret-key
+  expiration: 86400000 # 24 hours
 
 ngrok:
   enabled: true

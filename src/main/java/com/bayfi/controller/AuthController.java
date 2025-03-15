@@ -1,5 +1,6 @@
 package com.bayfi.controller;
 
+import com.bayfi.dto.Request.SignInRequest;
 import com.bayfi.dto.Request.SignUpRequest;
 import com.bayfi.service.implementation.AuthServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,6 +28,14 @@ public class AuthController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<String> registerUser(@RequestBody @Valid SignUpRequest request){
         return authService.registerUser(request);
+    }
+
+
+
+    @Operation(summary = "Authenticate a user", description = "The jwt provided after successful authentication will be used to access other end points by the user")
+    @PostMapping("/sign-in")
+    public ResponseEntity<String> authenticateUser(@RequestBody @Valid SignInRequest signInRequest){
+        return authService.authenticateUser(signInRequest);
     }
 
 

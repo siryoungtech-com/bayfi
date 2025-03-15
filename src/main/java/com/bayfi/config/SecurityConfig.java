@@ -108,6 +108,7 @@ public class SecurityConfig {
         return new ProviderManager(daoAuthenticationProvider);
     }
 
+
     @Bean
     public JwtAuthenticationConverter jwtAuthenticationConverter(){
         JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();

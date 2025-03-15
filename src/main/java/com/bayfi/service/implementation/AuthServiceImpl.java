@@ -1,5 +1,6 @@
 package com.bayfi.service.implementation;
 
+import com.bayfi.dto.Request.SignInRequest;
 import com.bayfi.dto.Request.SignUpRequest;
 import com.bayfi.entity.Role;
 import com.bayfi.entity.User;
@@ -7,12 +8,21 @@ import com.bayfi.exception.UserAlreadyExistsException;
 import com.bayfi.repository.RoleRepository;
 import com.bayfi.repository.UserRepository;
 import com.bayfi.service.AuthService;
+import com.bayfi.util.JwtUtil;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -29,11 +39,16 @@ public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
+    private final AuthenticationManager authenticationManager;
 
-    public AuthServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, RoleRepository roleRepository) {
+    @Autowired
+    private  JwtUtil jwtUtil;
+
+    public AuthServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, RoleRepository roleRepository, AuthenticationManager authenticationManager, JwtUtil jwtUtil) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.roleRepository = roleRepository;
+        this.authenticationManager = authenticationManager;
     }
 
     @Override
@@ -104,4 +119,39 @@ public class AuthServiceImpl implements AuthService {
             throw new RuntimeException(ex.getMessage());
         }
     }
+
+
+
+    @Override
+    public ResponseEntity<String> authenticateUser(SignInRequest signInRequest){
+
+        Optional<User> existingUserByEmail = userRepository.findByEmail(signInRequest.getEmail().toLowerCase());
+
+        if(existingUserByEmail.isEmpty()){
+            logger.warn("User not found with email: {}", signInRequest.getEmail().toLowerCase());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("invalid email or password");
+        }
+
+
+        try{
+            logger.info("attempting to authenticate with details {}" , signInRequest);
+            Authentication authentication = authenticationManager.authenticate(
+
+                    new UsernamePasswordAuthenticationToken(signInRequest.getEmail().toLowerCase(), signInRequest.getPassword())
+            );
+            logger.info("User authenticated successfully. Generating JWT token...");
+            String jwtToken = jwtUtil.generateJwt(authentication, signInRequest.getEmail().toLowerCase());
+
+            return ResponseEntity.ok(jwtToken);
+
+        }catch(RuntimeException e){
+            logger.error("Unexpected Error :  {}", e.getLocalizedMessage());
+            throw new RuntimeException(e.getLocalizedMessage());
+        }
+
+}
+
+
+
+
 }

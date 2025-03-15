@@ -30,7 +30,7 @@ public class GlobalExceptionHandler {
     //Handle Custom exceptions (e.g UserAlreadyExistsException)
     @ExceptionHandler(UserAlreadyExistsException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
-    public String handleUserAlreadyExistsExeption(UserAlreadyExistsException e){
+    public String handleUserAlreadyExistsException(UserAlreadyExistsException e){
         return e.getMessage();
     }
 
@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<String> HandleGenericException(Exception e){
         log.error(e.getMessage());
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred: ");
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred: " + e.getMessage());
 
     }
 
