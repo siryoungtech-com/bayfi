@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name = "HomeController", description = "Home Api")
+@Tag(name = "Home", description = "Home Api")
 @RestController
 public class HomeController {
     @Operation(description = "Endpoint for Home", summary = "This is the end point for home controller")

@@ -1,14 +1,13 @@
 package com.bayfi.service;
 
-import com.bayfi.dto.Request.SignInRequest;
-import com.bayfi.dto.Request.SignUpRequest;
-import org.springframework.http.ResponseEntity;
+import com.bayfi.dto.request.SignInRequest;
+import com.bayfi.dto.request.SignUpRequest;
+
+import java.net.URI;
 
 public interface AuthService {
-    ResponseEntity<String> registerUser(SignUpRequest request);
+    URI registerUser(SignUpRequest request);
 
-    ResponseEntity<String> authenticateUser(SignInRequest signInRequest);
+    String authenticateUser(SignInRequest signInRequest);
 
-
-    //SignInResponse loginUser(SignInRequest request);
 }

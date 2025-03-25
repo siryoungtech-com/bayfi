@@ -1,9 +1,10 @@
 package com.bayfi.service.implementation;
 
-import com.bayfi.dto.Request.SignInRequest;
-import com.bayfi.dto.Request.SignUpRequest;
+import com.bayfi.dto.request.SignInRequest;
+import com.bayfi.dto.request.SignUpRequest;
 import com.bayfi.entity.Role;
 import com.bayfi.entity.User;
+import com.bayfi.exception.InvalidCredentialException;
 import com.bayfi.exception.UserAlreadyExistsException;
 import com.bayfi.repository.RoleRepository;
 import com.bayfi.repository.UserRepository;
@@ -18,18 +19,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 @Transactional
 @Service
@@ -52,7 +50,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public ResponseEntity<String> registerUser(SignUpRequest request) {
+    public URI registerUser(SignUpRequest request) {
         logger.info("Registering user with email: {}", request.getEmail());
 
         // Check if user already exists
@@ -112,7 +110,8 @@ public class AuthServiceImpl implements AuthService {
                     .toUri();
 
             // Return 201 Created with the Location header and a success message
-            return ResponseEntity.created(location).body("User registered successfully!: " + location);
+//            return ResponseEntity.created(location).body("User registered successfully!: " + location);
+            return location;
         } catch (RuntimeException ex) {
             // Handle other exception
             logger.error("User Registration failed: {}", ex.getMessage());
@@ -123,13 +122,13 @@ public class AuthServiceImpl implements AuthService {
 
 
     @Override
-    public ResponseEntity<String> authenticateUser(SignInRequest signInRequest){
+    public String authenticateUser(SignInRequest signInRequest){
 
         Optional<User> existingUserByEmail = userRepository.findByEmail(signInRequest.getEmail().toLowerCase());
 
         if(existingUserByEmail.isEmpty()){
             logger.warn("User not found with email: {}", signInRequest.getEmail().toLowerCase());
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("invalid email or password");
+            throw new UsernameNotFoundException("invalid email or password");
         }
 
 
@@ -140,17 +139,16 @@ public class AuthServiceImpl implements AuthService {
                     new UsernamePasswordAuthenticationToken(signInRequest.getEmail().toLowerCase(), signInRequest.getPassword())
             );
             logger.info("User authenticated successfully. Generating JWT token...");
-            String jwtToken = jwtUtil.generateJwt(authentication, signInRequest.getEmail().toLowerCase());
 
-            return ResponseEntity.ok(jwtToken);
+            // return jwt token.
+            return jwtUtil.generateJwt(authentication, signInRequest.getEmail().toLowerCase());
 
         }catch(RuntimeException e){
-            logger.error("Unexpected Error :  {}", e.getLocalizedMessage());
-            throw new RuntimeException(e.getLocalizedMessage());
+            logger.error("Unexpected Error :  {}", e.getMessage());
+            throw new InvalidCredentialException("invalid email or password");
         }
 
-}
-
+    }
 
 
 

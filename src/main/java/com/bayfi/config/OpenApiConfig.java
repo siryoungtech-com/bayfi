@@ -21,6 +21,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
 
 
         servers = {
+                @Server(description = "localhost server", url = "http://localhost:8080"),
                 @Server(description = "development server", url = "https://trusty-vulture-roughly.ngrok-free.app")
         },
         security = {@SecurityRequirement(name = "bearerAuth")}
