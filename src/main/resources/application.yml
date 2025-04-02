@@ -1,0 +1,71 @@
+server:
+  port: 8080  # Local machine port for your app
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bayfi_db_local # Local PostgreSQL database
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update  # Automatically update schema in local development
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  redis:
+    host: localhost
+    port: 6379
+
+
+  cache:
+    type: redis
+
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 768614425942-c682j3tjomm3n2qgsmjaam2toh364ae3.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: https://trusty-vulture-roughly.ngrok-free.app/api/v1/auth/oauth2/callback/facebook
+            scope: openid, email, profile
+
+          facebook:
+            client-id: 2581623565377269
+            client-secret: 8caf368a089b415bfa090ee0f081b6f0
+            redirect-uri: https://trusty-vulture-roughly.ngrok-free.app/api/v1/auth/oauth2/callback/facebook
+            scope: email,public_profile
+
+
+
+
+  docker:
+    compose:
+      enabled: false
+
+
+
+ngrok:
+  enabled: true
+  auth-token: ${NGROK_AUTHTOKEN}
+  command: "http --url=trusty-vulture-roughly.ngrok-free.app 8080"
+
+
+logging:
+  file:
+    name: logger.log
+  level:
+    root: info  # Debug logging for detailed output during development
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+tatum:
+  api-key: t-67e84db75953fae328c2846f-382724749c294ba29c11d754

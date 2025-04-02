@@ -1,0 +1,39 @@
+server:
+  port: 8080  # Local machine port for your app
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${DATABASE_HOST:db}:${DATABASE_PORT:5432}/${DATABASE_NAME} # Local PostgreSQL database
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update  # Automatically update schema in local development
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  security:
+    user:
+      name: user
+      password: password
+
+logging:
+  level:
+    root: info  # Debug logging for detailed output during development
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${jWT_EXPIRATION}
+  ngrok:
+    enabled: true
+    auth-token: "${NGROK_AUTHTOKEN}"
+    command: "http --url=trusty-vulture-roughly.ngrok-free.app 8080"

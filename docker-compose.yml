@@ -1,0 +1,49 @@
+services:
+  app:
+    build: .
+    container_name: bayfi_app
+    ports:
+      - "8080:8080"  # Host port 8080 maps to container port 8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}   # Or 'dev' or 'prod' depending on your environment
+
+    depends_on:
+      - db
+    networks:
+      - bayfi_network
+
+  db:
+    image: postgres:latest
+    container_name: bayfi_postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - bayfi_network
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: bayfi_ngrok
+    command:
+      - "http --url=trusty-vulture-roughly.ngrok-free.app 8080"
+      # Forward to the Spring Boot app service
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    ports:
+      - 4040:4040  # Expose ngrok's web interface
+    depends_on:
+      - app
+    networks:
+      - bayfi_network
+
+volumes:
+  db_data:
+
+networks:
+  bayfi_network:
