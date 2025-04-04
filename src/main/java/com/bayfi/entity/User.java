@@ -19,9 +19,9 @@
     @Entity
     public class User  implements UserDetails {
         @Id
-        @GeneratedValue(strategy = GenerationType.UUID)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "user_id")
-        private UUID id;
+        private Long id;
 
         @Column(name = "firstname", nullable = false)
         private String firstname;

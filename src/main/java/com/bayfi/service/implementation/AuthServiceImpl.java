@@ -109,7 +109,6 @@ public class AuthServiceImpl implements AuthService {
                     .buildAndExpand(savedUser.getId())
                     .toUri();
 
-            // Return 201 Created with the Location header and a success message
 //            return ResponseEntity.created(location).body("User registered successfully!: " + location);
             return location;
         } catch (RuntimeException ex) {
