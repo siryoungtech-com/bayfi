@@ -48,14 +48,15 @@ public class CryptoWalletServiceImpl implements TatumService {
                     wallet.setBlockchainType(blockchainType.name());
                     wallet.setEncryptedMnemonic(response.getMnemonic()); // Note: You'll need to encrypt this
                     wallet.setXPub(response.getXPub());
+                    wallet.setAddress(response.getAddress());
+                    wallet.setPrivateKey(response.getPrivateKey()); // Note: Encrypt with this
 
                     // Save to database
                     return masterWalletRepository.save(wallet);
 
                 })
                 .doOnSuccess(wallet -> logger.info("Successfully generated master wallet for {}", blockchainType))
-                .doOnError(error -> logger.error("Error generating master wallet for {}: {}",
-                        blockchainType, error.getMessage()));
+                .doOnError(error -> logger.error("Error generating master wallet for {}: {}", blockchainType, error.getMessage()));
     }
 
     private String getUriPathForBlockchain(BlockChainType blockchainType) {

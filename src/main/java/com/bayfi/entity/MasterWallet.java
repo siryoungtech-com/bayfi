@@ -19,11 +19,13 @@ public class MasterWallet {
     @Column(nullable = false)
     private String blockchainType; //e.g "BTC", "ETH", "SOL"
 
-    @Column(nullable = false, unique = true)
     private String xPub;
 
-    @Column(nullable = false)
-    private String encryptedMnemonic; // ENCRYPTED WITH KMS
+    private String address;
+
+    private String privateKey; // MUST BE ENCRYPTED WITH KMS
+
+    private String encryptedMnemonic; // MUST BE ENCRYPTED WITH KMS
 
     @CreationTimestamp
     private LocalDateTime createdAt;
