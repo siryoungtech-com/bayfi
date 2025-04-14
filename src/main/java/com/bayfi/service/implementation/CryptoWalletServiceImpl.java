@@ -51,6 +51,8 @@ public class CryptoWalletServiceImpl implements TatumService {
                     wallet.setAddress(response.getAddress());
                     wallet.setPrivateKey(response.getPrivateKey()); // Note: Encrypt with this
 
+//                    TODO: IMPLEMENT KMS
+
                     // Save to database
                     return masterWalletRepository.save(wallet);
 
@@ -68,6 +70,10 @@ public class CryptoWalletServiceImpl implements TatumService {
             case TRON -> "/tron/wallet";
             default -> throw new IllegalArgumentException("Unsupported blockchain type: " + blockchainType);
         };
+    }
+
+    private String encryptWithKMS(String data){
+        return null;
     }
 
 }

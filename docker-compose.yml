@@ -1,14 +1,27 @@
+version: '3.8'
 services:
   app:
     build: .
     container_name: bayfi_app
     ports:
-      - "8080:8080"  # Host port 8080 maps to container port 8080
+      - "8080:8080"
     environment:
-      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}   # Or 'dev' or 'prod' depending on your environment
-
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/${DATABASE_NAME}
+      - SPRING_DATASOURCE_USERNAME=${DATABASE_USER}
+      - SPRING_DATASOURCE_PASSWORD=${DATABASE_PASSWORD}
+      - JWT_EXPIRATION=${JWT_EXPIRATION}
+      - TATUM_API_KEY=${TATUM_API_KEY}
+      - TATUM_KMS_PASSWORD=${TATUM_KMS_PASSWORD}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - FACEBOOK_CLIENT_ID=${FACEBOOK_CLIENT_ID}
+      - FACEBOOK_CLIENT_SECRET=${FACEBOOK_CLIENT_SECRET}
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+      - BASE_URI=${BASE_URI}
     depends_on:
       - db
+      - kms
     networks:
       - bayfi_network
 
@@ -27,16 +40,30 @@ services:
     networks:
       - bayfi_network
 
+  kms:
+    image: tatumio/tatum-kms
+    container_name: bayfi_kms
+    environment:
+      - TATUM_API_KEY=${TATUM_API_KEY}
+      - TATUM_KMS_PASSWORD=${TATUM_KMS_PASSWORD}
+    volumes:
+      - ./kms-data:/root/.tatumrc
+    command: daemon --testnet --period=60
+    restart: unless-stopped
+    networks:
+      - bayfi_network
+
   ngrok:
     image: ngrok/ngrok:latest
     container_name: bayfi_ngrok
     command:
-      - "http --url=trusty-vulture-roughly.ngrok-free.app 8080"
-      # Forward to the Spring Boot app service
+      - "http"
+      - "app:8080"
     environment:
-      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+      - BASE_URI=${BASE_URI}
     ports:
-      - 4040:4040  # Expose ngrok's web interface
+      - "4040:4040"
     depends_on:
       - app
     networks:

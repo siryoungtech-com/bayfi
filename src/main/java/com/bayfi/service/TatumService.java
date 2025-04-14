@@ -7,4 +7,6 @@ import reactor.core.publisher.Mono;
 @Service
 public interface TatumService {
     Mono<MasterWallet> generateMasterWallet(BlockChainType blockchainType);
+
+
 }

@@ -34,3 +34,5 @@ build/
 
 #ENVIROMENT VARIABLES
 .env
+kms-data/
+*.log
